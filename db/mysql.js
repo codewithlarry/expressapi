@@ -7,34 +7,34 @@ const mysql = require('mysql2');
 
 dotenv.config();
 const {
-    DATABASE_HOST,
-    DATABASE_PORT,
-    DATABASE_NAME,
-    DATABASE_PASSWORD,
-    DATABASE_USERNAME
+    DATABASE_MY_HOST,
+    DATABASE_MY_PORT,
+    DATABASE_MY_NAME,
+    DATABASE_MY_PASSWORD,
+    DATABASE_MY_USERNAME
 } = process.env;
 
 const conn = mysql.createConnection({
-  host     : DATABASE_HOST,
-  port     : DATABASE_PORT,
-  database : DATABASE_NAME,
-  user     : DATABASE_USERNAME,
-  password : DATABASE_PASSWORD
+    host     : DATABASE_MY_HOST,
+    port     : DATABASE_MY_PORT,
+    database : DATABASE_MY_NAME,
+    user     : DATABASE_MY_USERNAME,
+    password : DATABASE_MY_PASSWORD
 });
-console.log("Created a connection to the database");
+console.log("Created a connection to MySQL");
 
-conn.execute("CREATE TABLE IF NOT EXISTS user (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), email VARCHAR(255))", (error, result, fields) => {
+conn.execute("CREATE TABLE IF NOT EXISTS users (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), email VARCHAR(255))", (error, result, fields) => {
   if (error) throw error;
-  console.log("Created table user");
-  conn.execute("INSERT INTO user( name , email ) values ( 'Mike' , 'mike@test.com'),( 'Ron' , 'ron@test.com');", (error, result) => {
+  console.log("Created table users in MySQL");
+  conn.execute("INSERT INTO users( name , email ) values ( 'Mike' , 'mike@test.com'),( 'Ron' , 'ron@test.com');", (error, result) => {
     if (error) throw error;
-    console.log("Inserted user data");
-    conn.query("SELECT id,name,email from user", (error, rows, fields) => {
+    console.log("Inserted users data into MySQL");
+    conn.query("SELECT id,name,email from users", (error, rows, fields) => {
         if (error) throw error;
-        console.log("Queried data from table user");
+        console.log("Queried data from table users in MySQL");
         console.log(rows);
         conn.end();
-        console.log("Closed the connection to the database");  //must close connection or the limited connections won't be avaliable soon.
+        console.log("Closed the connection to MySQL");  //must close connection or the limited connections won't be avaliable soon.
     });
   });
 });
