@@ -3,22 +3,22 @@ const { QueryTypes,Sequelize } = require("sequelize");
 
 dotenv.config();
 const {
-  DATABASE_MY_ENGINE,
-  DATABASE_MY_HOST,
-  DATABASE_MY_PASSWORD,
-  DATABASE_MY_USERNAME,
-  DATABASE_MY_PORT,
-  DATABASE_MY_NAME,
+  DATABASE_ENGINE,
+  DATABASE_HOST,
+  DATABASE_PASSWORD,
+  DATABASE_USERNAME,
+  DATABASE_PORT,
+  DATABASE_NAME,
 } = process.env;
 
 const dataSource = new Sequelize(
-  DATABASE_MY_NAME,
-  DATABASE_MY_USERNAME,
-  DATABASE_MY_PASSWORD,
+  DATABASE_NAME,
+  DATABASE_USERNAME,
+  DATABASE_PASSWORD,
   {
-    host: DATABASE_MY_HOST,
-    port: DATABASE_MY_PORT,
-    dialect: DATABASE_MY_ENGINE,
+    host: DATABASE_HOST,
+    port: DATABASE_PORT,
+    dialect: DATABASE_ENGINE,
     pool: {
         max: 10,
         min: 0,
