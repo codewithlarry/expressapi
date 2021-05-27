@@ -1,5 +1,3 @@
-//reference: https://node-postgres.com/features/connecting
-//https://github.com/brianc/node-postgres/tree/master/packages/pg-pool
 const dotenv = require("dotenv");
 const { Pool, Client } = require('pg');
 

@@ -1,8 +1,3 @@
-// reference: https://www.npmjs.com/package/mysql2
-// https://github.com/mysqljs/mysql#pooling-connections
-// why mysql2 instead of mysql? The prior one has better performance and faster
-// es8(es2017) starts to support async/await
-// why and when should db pool be used?
 const dotenv = require("dotenv");
 const mysql = require('mysql2/promise');
 
