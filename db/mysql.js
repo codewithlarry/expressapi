@@ -1,7 +1,3 @@
-// reference: https://www.npmjs.com/package/mysql2
-// https://www.npmjs.com/package/mysql#establishing-connections
-// why mysql2 instead of mysql? The prior one has better performance and faster
-// es8(es2017) starts to support async/await
 const dotenv = require("dotenv");
 const mysql = require('mysql2');
 
