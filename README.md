@@ -1,5 +1,5 @@
 # 关于expressapi
-expressapi代码仓库用来共享小林在Youtube频道`小林方程式`中所使用的所有代码。
+expressapi代码仓库用来共享小林在Youtube频道`小林方程式`中所使用的nodejs express mysql和redis搭建api接口的代码。
 
 # 如何使用
 * 下载expressapi的代码至本地
