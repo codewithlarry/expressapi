@@ -4,7 +4,6 @@ const dotenv = require("dotenv");
 const { Pool, Client } = require('pg');
 
 dotenv.config();
-
 const {
     DATABASE_PG_HOST,
     DATABASE_PG_PORT,
