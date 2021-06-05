@@ -24,9 +24,11 @@ Products.init({
     try{
         await dataSource.sync( {alter: true} );
         console.log("table products is created!");
+        
         //insert bulk records
         let rowscount = await Products.count();
         console.log("There are ", rowscount, "rows in table products");
+
         if (rowscount == 0) {
             let bulkproducts = [];
             for(i=0;i<100;i++){
@@ -37,8 +39,10 @@ Products.init({
             }
             await Products.bulkCreate( bulkproducts );
             console.log("Inserted ", bulkproducts.length ," records");
+
             rowscount = await Products.count();
             console.log("Found", rowscount, "records");
+            
         }
 
         //insert one record
