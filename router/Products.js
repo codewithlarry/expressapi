@@ -18,7 +18,7 @@ router.post("/", async (req, res, next) => {
         });
         res.status(201).json(product);
     } catch (err) {
-        res.status(500).send({message: err.message});
+        res.status(500).json({message: err.message});
     }
 });
 
@@ -41,7 +41,7 @@ router.put("/:id", async (req, res, next) => {
         let updatedProduct = await Products.findByPk(parseInt(req.params.id))
         res.status(200).json(updatedProduct);
     } catch (err) {
-        res.status(500).send({message: err.message});
+        res.status(500).json({message: err.message});
     }
 });
 
@@ -58,7 +58,7 @@ router.delete("/:id", async (req, res, next) => {
         });
         res.status(204).send();
     } catch (err) {
-        res.status(500).send({message: err.message});
+        res.status(500).json({message: err.message});
     }
 });
 
@@ -77,7 +77,7 @@ router.get("/", async (req, res, next) => {
         });
         res.json(products);
     } catch (err) {
-        res.status(500).send({message: err.message});
+        res.status(500).json({message: err.message});
     }
 });
 
@@ -89,7 +89,7 @@ router.get("/:id", async (req, res, next) => {
         }
         res.json(product);
     } catch (err) {
-        res.status(500).send({message: err.message});
+        res.status(500).json({message: err.message});
     }
 });
 
