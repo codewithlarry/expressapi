@@ -1,12 +1,12 @@
 const express = require("express");
-const productsRouter = require("./router/products");
+const productsRouter = require("./router/Products");
 
 const app = express();
 
 /**Some examples use bodyParser, however, express use bodyParser as well. */
 //app.use(bodyParser.json());
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+//app.use(express.urlencoded({ extended: true }));
 
 //load routers
 app.use("/products", productsRouter);

@@ -14,7 +14,7 @@ router.post("/", async (req, res, next) => {
         let product = await Products.create({
             name: req.body.name,
             description: req.body.description,
-            userId: req.user.id
+            memo: req.body.memo
         });
         res.status(201).json(product);
     } catch (err) {
@@ -26,7 +26,7 @@ router.put("/:id", async (req, res, next) => {
     try {
         let existedProduct = await Products.findByPk(parseInt(req.params.id));
         if (!existedProduct) {
-            throw new Error("Not Found product by primary key", req.params.id);
+            throw new Error("Not found product by primary key " + req.params.id);
         }
         let product = await Products.update({
             name: req.body.name,
@@ -49,7 +49,7 @@ router.delete("/:id", async (req, res, next) => {
     try {
         let existedProduct = await Products.findByPk(parseInt(req.params.id));
         if (!existedProduct) {
-            throw new Error("Not Found product by primary key", req.params.id);
+            throw new Error("Not Found product by primary key " + req.params.id);
         }
         let result = await Products.destroy({
             where: {
@@ -75,7 +75,7 @@ router.get("/", async (req, res, next) => {
             limit: parseInt(req.query.limit),
             offset: parseInt(req.query.offset)
         });
-        res.json(products);
+        res.status(200).json(products);
     } catch (err) {
         res.status(500).json({message: err.message});
     }
@@ -87,7 +87,7 @@ router.get("/:id", async (req, res, next) => {
         if (!product) {
             throw new Error("Not found the product by id " + req.params.id);
         }
-        res.json(product);
+        res.status(200).json(product);
     } catch (err) {
         res.status(500).json({message: err.message});
     }
