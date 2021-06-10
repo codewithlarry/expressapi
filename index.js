@@ -1,5 +1,7 @@
 const express = require("express");
 const productsRouter = require("./router/Products");
+const errorHandler = require("./error/errorHandler");
+const { NotFoundError } = require("./error/errors");
 
 const app = express();
 
@@ -10,6 +12,13 @@ app.use(express.json());
 
 //load routers
 app.use("/products", productsRouter);
+
+app.all('*', (req, res, next) => {
+    throw new NotFoundError("Not found the uri "+req.path);
+});
+
+//errorhandler must be put after routers
+app.use(errorHandler);
 
 app.listen({ port: 8000}, () =>{
     console.log("API service started on port 8000");
