@@ -10,7 +10,7 @@ router.post("/", async (req, res, next) => {
     try {
         let existedProduct = await Products.findOne({ where: { name: req.body.name } });
         if (existedProduct) {
-            throw new ConflictError("product " + req.body.name + "is existed already.");
+            throw new ConflictError("product " + req.body.name + " is existed already.");
         }
         let product = await Products.create({
             name: req.body.name,

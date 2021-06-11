@@ -1,56 +1,48 @@
 
 class GeneralError extends Error {
-    constructor(message) {
-      super();
-      this.message = message;
-    }
-}
- 
-class BadRequestError extends GeneralError { 
   constructor(message) {
-    super(message);
-    this.statusCode=400;
+    super();
+    this.message = message;
   }
- }
+}
 
-class UnauthorizedError extends GeneralError { 
+class UnauthorizedError extends GeneralError {
   constructor(message) {
     super(message);
-    this.statusCode=401;
+    this.statusCode = 401;
   }
 }
 
 class ForbiddenError extends GeneralError {
   constructor(message) {
     super(message);
-    this.statusCode=403;
+    this.statusCode = 403;
   }
 }
 
-class NotFoundError extends GeneralError { 
+class NotFoundError extends GeneralError {
   constructor(message) {
     super(message);
-    this.statusCode=404;
+    this.statusCode = 404;
   }
 }
 
 class ConflictError extends GeneralError {
   constructor(message) {
     super(message);
-    this.statusCode=409;
+    this.statusCode = 409;
   }
 }
 
-class InternalServerError extends GeneralError { 
+class InternalServerError extends GeneralError {
   constructor(message) {
     super(message);
-    this.statusCode=500;
+    this.statusCode = 500;
   }
 }
 
 module.exports = {
   GeneralError,
-  BadRequestError,
   UnauthorizedError,
   ForbiddenError,
   NotFoundError,
