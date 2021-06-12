@@ -21,3 +21,19 @@ https://youtu.be/TLJVwFPObUA
 https://youtu.be/YHbWPzW1hy8 
 
 https://youtu.be/jnNU3I-iuv8
+
+
+## 启动API服务
+`node .` 或者 `node index.js`
+### youtube视频
+https://youtu.be/yQvGbocoWqE
+
+## API错误处理
+https://youtu.be/u3-WAGEn0W8
+
+
+
+
+
+
+
