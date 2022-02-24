@@ -11,17 +11,32 @@ const {
   DATABASE_POOLSIZE
 } = process.env;
 
-const dataSource = new Sequelize(
+const dataSources = [];
+
+dataSources[0] = new Sequelize(
   DATABASE_NAME,
   DATABASE_USERNAME,
   DATABASE_PASSWORD,
   {
     host: DATABASE_HOST,
-    dialect: DATABASE_ENGINE,
+    dialect: 'mysql',
     pool: {
         max: parseInt(DATABASE_POOLSIZE)
      }
   }
 );
 
-module.exports = dataSource;
+dataSources[1] = new Sequelize(
+  DATABASE_NAME,
+  DATABASE_USERNAME,
+  DATABASE_PASSWORD,
+  {
+    host: DATABASE_HOST,
+    dialect: 'postgres',
+    pool: {
+        max: parseInt(DATABASE_POOLSIZE)
+     }
+  }
+);
+
+module.exports = dataSources[currentDataSourceId];

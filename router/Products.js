@@ -65,6 +65,7 @@ router.delete("/:id", async (req, res, next) => {
 
 
 router.get("/", async (req, res, next) => {
+    console.log("currentDataSourceId="+currentDataSourceId);
     try {
         let products = await Products.findAndCountAll({
             where: {

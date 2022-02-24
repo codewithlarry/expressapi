@@ -3,6 +3,8 @@ const productsRouter = require("./router/Products");
 const errorHandler = require("./error/errorHandler");
 const { NotFoundError } = require("./error/errors");
 
+global.currentDataSourceId=1;
+
 const app = express();
 
 /**Some examples use bodyParser, however, express use bodyParser as well. */
